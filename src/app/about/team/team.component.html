@@ -1,0 +1,26 @@
+<!-- Team Start -->
+<div class="container-xxl pt-5 pb-3">
+    <div class="container">
+        <div class="text-center">
+            <h5 class="section-title ff-secondary text-center text-primary">{{ PageName }}</h5>
+            <h1 class="mb-5">{{ PageSubTitle }}</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6" *ngFor="let team of TeamDetails" >
+                <div class="team-item text-center rounded overflow-hidden">
+                    <div class="rounded-circle overflow-hidden m-4">
+                        <img class="img-fluid" [src]="team.ChefImageLink" alt="">
+                    </div>
+                    <h5 class="mb-0">{{ team.ChefName }}</h5>
+                    <small>{{ team.Designation }}</small>
+                    <div class="d-flex justify-content-center mt-3" >
+                        <ng-container *ngFor="let social of team.social">
+                            <a *ngIf="social.status" class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-{{ social.network |lowercase }}"></i></a>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Team End -->

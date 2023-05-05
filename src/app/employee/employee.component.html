@@ -1,0 +1,14 @@
+<ng-container *ngIf="EmployeeDetails">
+<div class="row mb-3">
+    <div class="col-sm-4"> Salary </div>
+    <div class="col-sm-8">{{ EmployeeDetails.Salary | currency:'INR'}}</div>
+</div>
+<div class="row mb-3">
+    <div class="col-sm-4"> Workday </div>
+    <div class="col-sm-8">{{ EmployeeDetails.Workday | date }}</div>
+</div>
+<div class="row mb-3">
+    <div class="col-sm-4"> Experience </div>
+    <div class="col-sm-8">{{ EmployeeDetails.Experience | number }}</div>
+</div>
+</ng-container>

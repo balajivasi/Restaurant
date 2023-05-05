@@ -1,0 +1,21 @@
+<div id="Admin" class="container">
+    <div class="card">
+
+        <div class="card-header text-center">
+            {{ pageTitle |titlecase}}
+        </div>
+        <div class="card-body">
+            <div class="list-group">
+                <span class="list-group-item" *ngFor="let customer of customerConatcts">
+                   
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ customer.Name }}</h5>
+                        <small *ngIf="customer.created_date">{{ customer.created_date |  dateDiff }}</small>
+                    </div>
+                    <p class="mb-1">Email: {{customer.EmailAddress}}</p>
+                    <p class="mb-1">{{ customer.Subject}}</p>
+                    <small>{{ customer.Message }}</small>
+                </span>
+            </div>
+        </div>
+    </div>

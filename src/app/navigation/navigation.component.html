@@ -1,0 +1,33 @@
+<div class="container-xxl position-relative p-0">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-lg-5 py-3 py-lg-0 sticky-top ">
+        <div class="logo"><img src="https://firebasestorage.googleapis.com/v0/b/sripadmavathi-foods.appspot.com/o/Logo.jpg?alt=media&token=66f4c274-245f-4944-af69-35c599c789d3"/></div>
+        <a routerLink="./" class="navbar-brand p-0 ml-10">
+                
+            <h1 class="text-primary m-0">
+                {{ WebSiteTitle }}</h1>
+            <!-- <img src="img/logo.png" alt="Logo"> -->
+        </a>
+        <button class="navbar-toggler mr-10" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="fa fa-bars"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-0 pe-4">
+                <ng-container>
+                    <a routerLink="./Home" class="nav-item nav-link" routerLinkActive="active">Home</a>
+                    <a routerLink="./About" class="nav-item nav-link" routerLinkActive="active">About</a>
+                    <a routerLink="./Service" class="nav-item nav-link" routerLinkActive="active">Service</a>
+                    <a routerLink="./Menu" class="nav-item nav-link" routerLinkActive="active">Menu</a>
+                    <a routerLink="./ContactUs" class="nav-item nav-link" routerLinkActive="active">Contact</a>
+                    <a routerLink="./Account" class="nav-item nav-link" routerLinkActive="active">{{ !isLoggedIn ? 'SignIn' : 'My Account'}}</a>
+                </ng-container>
+                <ng-container *ngIf="userType == 'Admin' || userType == 'SuperUser'">
+                    <a routerLink="./Admin/users" class="nav-item nav-link" routerLinkActive="active">Registered Users</a>
+                    <a routerLink="./Admin/products" class="nav-item nav-link" routerLinkActive="active">Products</a>
+                    <a routerLink="./Admin/ourTeam" class="nav-item nav-link" routerLinkActive="active">Our Team</a>
+                    <a routerLink="./Admin/customerContact" class="nav-item nav-link"  routerLinkActive="active">Customer Contact</a>
+                </ng-container>
+                <a routerLink="" class="nav-item nav-link" *ngIf="isLoggedIn" (click)="SignOut()">Sign Out</a>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,60 @@
+<div class="container-fluid bg-dark text-light footer  mt-5" [ngClass]="userType != 'Customer' ? '':'pt-5' ">
+    <div class="container py-5" *ngIf="userType == 'Customer' ">
+        <div class="row g-5">
+            <div class="col-lg-4 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Company</h4>
+                <a class="btn btn-link" routerLink="./About">About Us</a>
+                <a class="btn btn-link" routerLink="./ContactUs">Contact Us</a>
+                <a class="btn btn-link" routerLink="[]">Privacy Policy</a>
+                <a class="btn btn-link" routerLink="[]">Terms & Condition</a>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contact</h4>
+                <p class="mb-2"><a target="_blank" href="https://www.google.com/maps/place/Sri+Padmavathi+Foods/@13.6182355,79.4233263,17z/data=!3m1!4b1!4m6!3m5!1s0x3a4d4b9ffde1db45:0x48813d16a75616d5!8m2!3d13.6182355!4d79.4259012!16s%2Fg%2F11cjj040mj"><i class="fa fa-map-marker-alt me-3"></i></a>Bairagipatteda Rd, Kesavayana gunta, Tirupati, Andhra Pradesh 517501, India</p>
+                <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+918886669907">888 666 9907</a></p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:dharanikumar.katla@gmail.com">dharanikumar.katla@gmail.com</a></p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" routerLink="[]"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" routerLink="[]"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" routerLink="[]"><i class="fab fa-youtube"></i></a>
+                    <a class="btn btn-outline-light btn-social" routerLink="[]"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Opening</h4>
+                <h5 class="text-light fw-normal">Monday - Saturday</h5>
+                <p>11:30AM - 11PM</p>
+                <h5 class="text-light fw-normal">Sunday</h5>
+                <p>10AM - 11:30PM</p>
+            </div>
+            <!--
+            <div class="col-lg-3 col-md-6">
+                <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Newsletter</h4>
+                <p>Stay in the loop and be the first to know about our latest promotions menu updates, and events by subscribing to our newsletter. Don't miss out on exclusive offers and delicious updates from our restaurant.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                </div>
+            </div>-->
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" routerLink="./">Sri Padmavathi Foods</a>, All Right Reserved. 
+      
+      <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+     <!-- Designed By <a class="border-bottom" target="_blank" href="https://htmlcodex.com">HTML Codex</a>--> 
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a routerLink="./">Home</a>
+                        <a routerLink="[]">Help</a>
+                        <a routerLink="[]">FQAs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

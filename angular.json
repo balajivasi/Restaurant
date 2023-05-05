@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sri-padmavathi-foods",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,17 +30,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/customize-bootstrap.scss",
+              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -96,6 +101,16 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "SriPadmavathiFoods:build:production",
+            "firebaseProject": "sripadmavathi-foods",
+            "firebaseHostingSite": "sripadmavathi-foods"
           }
         }
       }

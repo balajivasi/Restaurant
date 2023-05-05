@@ -1,0 +1,62 @@
+<div id="Admin" class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            {{ pageTitle |titlecase}}
+        </div>
+        <div class="card-body">
+            
+            <button type="button" class="btn btn-outline-primary float-right" routerLink="..">Back to Menu</button>
+            <br class="clear" />
+            <form #f="ngForm" (ngSubmit)="SaveProduct(f.value.MenuImage)">
+                <div class="form-group">
+                    <label for="Name">Menu Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Menu Item Name" name="MenuName"
+                        [(ngModel)]="Product.MenuName">
+                </div>
+                <div class="form-group">
+                    <label for="MenuType">Type OF Menu</label>
+                    <select class="form-control" id="MenuType" name="MenuType" [(ngModel)]="Product.MenuType">
+                        <option value="">Select Type OF Menu</option>
+                        <option value="1">Biryani</option>
+                        <option value="2">Chicken Items</option>
+                        <option value="3">Gravies Non Veg</option>
+                        <option value="4">Indian Breads</option>
+                        <option value="5">Non Veg</option>
+                        <option value="6">Sea Food</option>
+                        <option value="7">Veg</option>
+                        <option value="8">Veg Gravies</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="ItemDetails">Menu Item Details</label>
+                    <textarea class="form-control" id="ItemDetails" placeholder="Enter Item Details"
+                        name="MenuItemDetails" [(ngModel)]="Product.ItemDetails"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="Price">Price</label>
+                    <input type="number" class="form-control" id="Price" placeholder="Enter Price of the Item"
+                        name="Price" [(ngModel)]="Product.Price">
+                </div>
+                <div class="form-check mt-3 mb-3">
+                    <label for="Popular">Most Popular</label>
+                    <input class="form-check-input" type="checkbox" id="Popular" name="Popular" [(ngModel)]="Product.Popular">
+                </div>
+                <div class="form-group">
+                    <label for="Status">Status(Show in Menu)</label>
+                    <select class="form-control" id="Status" name="Status" [(ngModel)]="Product.Status">
+                        <option>select the menu need to show or not</option>
+                        <option value="1">Active</option>
+                        <option value="0">InActive</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label" for="MenuImage">Upload Menu Image</label>
+                    <input type="file" class="form-control" id="MenuImage" #MenuImage (change)="readFile($event)"
+                            name="MenuImage" ngModel />
+                </div>
+                <button type="submit" class="btn btn-primary">{{ PageButton }}</button>
+            </form>
+        </div>
+    </div>
+
+</div>

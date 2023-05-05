@@ -1,0 +1,19 @@
+<div class="tab-content">
+    <div class="tab-pane fade show p-0 active">
+        <div class="row g-4">
+            <div class="col-lg-6" *ngFor="let product of Products">
+                <div class="d-flex align-items-center">
+                    <img class="rounded" [src]="product.MenuImageLink" alt="" style="width: 100px;">
+                    <div class="flex-column text-start w-100 ps-4">
+                        <h6 class="border-bottom small pb-2">
+                            <span>{{ product.MenuName }}</span>
+                            <span class="text-primary float-right">{{ product.Price | currency:'INR' }}</span>
+                        </h6>
+                        <small class="fst-italic">{{ product.ItemDetails }}</small>
+                        <div class="col-sm-3 float-right"><button *ngIf="product.Status == 1" type="button" disabled class="w-100 btn btn-primary btn-sm"> Add to Cart</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

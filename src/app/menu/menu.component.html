@@ -1,0 +1,90 @@
+<div *ngIf="pageName" class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3">{{pageName}}</h1>
+    </div>
+</div>
+<!-- Menu Start -->
+    <div class="container">
+        <div class="text-center mb-3">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">{{ FoodMenuTitle }}</h5>
+            <!--<h1 class="mb-5">{{ FoodMenuSubTitle }}</h1>-->
+        </div>
+        <div class="tab-class text-center mt-3">
+           <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3" [class.active]="selectedItems=='1'" [routerLink]="[]" (click)="selectedMenu('1')" >
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Popular</small>
+                            <h6 class="mt-n1 mb-0">Biryani</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 pb-3" [class.active]="selectedItems=='2'" [routerLink]="[]" (click)="selectedMenu('2')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Special</small>
+                            <h6 class="mt-n1 mb-0">Chicken</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='3'" [routerLink]="[]" (click)="selectedMenu('3')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Lovely</small>
+                            <h6 class="mt-n1 mb-0">Gravies Non Veg</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='6'" [routerLink]="[]" (click)="selectedMenu('6')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Lovely</small>
+                            <h6 class="mt-n1 mb-0">Sea Food</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='4'" [routerLink]="[]" (click)="selectedMenu('4')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Special</small>
+                            <h6 class="mt-n1 mb-0">Indian Breads</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='5'" [routerLink]="[]" (click)="selectedMenu('5')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Special</small>
+                            <h6 class="mt-n1 mb-0">Non Veg Rice</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='7'" [routerLink]="[]" (click)="selectedMenu('7')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Special</small>
+                            <h6 class="mt-n1 mb-0">Veg Rice</h6>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" [class.active]="selectedItems=='8'" [routerLink]="[]" (click)="selectedMenu('8')">
+                        <i class="fa fa-utensils fa-2x text-primary"></i>
+                        <div class="ps-3">
+                            <small class="text-body">Special</small>
+                            <h6 class="mt-n1 mb-0">Veg Gravies</h6>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            <app-menulist [menuItems]="selectedItems"/>
+        </div>
+    </div>
+<!-- Menu End -->

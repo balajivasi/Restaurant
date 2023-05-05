@@ -1,0 +1,54 @@
+<div *ngIf="PageName" class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ PageName }}</h1>
+    </div>
+</div>
+<div class="alert alert-info" role="alert" *ngIf="reSendVerify">
+  Thank you for signing up with us! We have sent a verification email to the email address you provided. Please click on the verification link in the email to confirm your account and start enjoying our services.
+  <button type="button" class="btn btn-info" (click)="ReSendVerify()">Re send Verification link</button>
+</div>
+<div class="container-xxl pb-3">
+    <div class="container">
+        <p *ngIf="showPage.isLogin">Please Sign in to your account.</p>
+        <p *ngIf="showPage.isSignUp">Please create a Account.</p>
+        <p *ngIf="showPage.isforgotPassword">Please enter your email address to reset your password.</p>
+        <form #signupForm="ngForm" (ngSubmit)="myAccount(signupForm.value);signupForm.reset()">
+          <div class="form-group" *ngIf="showPage.isSignUp">
+            <label for="name">Full Name</label>
+            <input type="text" class="form-control" id="name" #name="ngModel" ngModel required name name="name" placeholder="Please Enter Full Name">
+            <div class="text-danger" *ngIf="name.errors && (name.dirty || name.touched)">
+              <small>name is required.</small>
+            </div>
+          </div> 
+          <div class="form-group" *ngIf="showPage.isSignUp">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="number" class="form-control" id="phoneNumber" #phoneNumber="ngModel" ngModel required phoneNumber name="phoneNumber" placeholder="Please Enter Phone Number">
+            <div class="text-danger" *ngIf="phoneNumber.errors && (phoneNumber.dirty || phoneNumber.touched)">
+              <small>Phone Number is required.</small>
+            </div>
+          </div> 
+          <div class="form-group">
+              <label for="email">Email address</label>
+              <input type="email" class="form-control" id="email" #email="ngModel" ngModel required email name="email" placeholder="Please Enter email">
+              <div class="text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                <small>Email is required.</small>
+              </div>
+            </div>
+            <div class="form-group" *ngIf="showPage.isLogin || showPage.isSignUp">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" ngModel name="password" #password="ngModel" required minlength="6"  placeholder="Please Enter Password">
+              <div class="text-danger" *ngIf="password.errors && (password.dirty || password.touched)">
+                <small>Password must be at least 6 characters long.</small>
+              </div>
+            </div>
+            <div class="mb-3"></div><button type="submit" [disabled]="!signupForm.form.valid" class="btn btn-primary">{{ PageName }}</button>
+        </form>
+        <div *ngIf="showPage.isLogin">
+            <p><a [routerLink]="" (click)="forgotPassword()" class="text-primary pointer">Forgot your Password?</a></p>
+            <p>Don't have an account? <a [routerLink]="" (click)="signUpPage()" class=" pointer text-primary">Sign up for free</a></p>
+        </div>
+        <div *ngIf="showPage.isSignUp">
+           <p>Have an account? <a [routerLink]="" (click)="loginPage()" class=" pointer text-primary">Click hear to login</a></p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div *ngIf="PageName" class="container-xxl py-5 bg-dark hero-header mb-5">
+    <div class="container text-center pt-5 pb-4">
+        <h1 class="display-3 text-white mb-3 animated slideInDown">{{ PageName | slice:0:7 }}</h1>
+    </div>
+</div>
+
+<!-- Contact Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">{{ PageName }}</h5>
+            <h1 class="mb-5">{{ ContactDetails }}</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="row gy-4">
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">Booking</h5>
+                        <p><i class="fa fa-phone-alt text-primary me-2"></i><a href="tel:+918886669907">888 666 9907</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">General</h5>
+                        <p><i class="fa fa-phone-alt text-primary me-2"></i><a href="tel:+918886669907">888 666 9907</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="section-title ff-secondary fw-normal text-start text-primary">Technical</h5>
+                        <p><i class="fa fa-phone-alt text-primary me-2"></i><a href="tel:+918886669907">888 666 9907</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s"><img width="100%" src="https://firebasestorage.googleapis.com/v0/b/sripadmavathi-foods.appspot.com/o/Location.png?alt=media&token=e67de11b-7273-4d42-8bbe-2612d4112b69" /></div>
+            <div class="col-md-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+                    <form #f="ngForm" (ngSubmit)="submitContactUs(f.value);f.reset();">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="Name" ngModel name="Name" placeholder="Your Name">
+                                    <label for="Name">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" ngModel name="EmailAddress" placeholder="Your Email">
+                                    <label for="email">Your Email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" ngModel name="Subject" placeholder="Subject">
+                                    <label for="subject">Subject</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Leave a message here" ngModel name="Message" id="message"
+                                        style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact End -->

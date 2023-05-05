@@ -1,0 +1,99 @@
+<div id="Admin" class="container">
+    <div class="card">
+        <div class="card-header text-center">
+            {{ pageTitle |titlecase}}
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col col-lg-5">
+                    <div class="col-10" *ngFor="let user of userData">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-sm-4">Full Name</div>
+                                    <div class="col-sm-6 text-muted">{{ user.displayName | titlecase }}</div>
+                                    <div class="col-sm-2"><span class="bg-primary float-right iconBg"
+                                            (click)="EditProfile(user);"><svg xmlns="http://www.w3.org/2000/svg"
+                                                width="20" height="20" fill="currentColor" class="bi bi-pen"
+                                                viewBox="0 0 16 16">
+                                                <path
+                                                    d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z" />
+                                            </svg></span></div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-sm-4">Email</div>
+                                    <div class="col-sm-8 text-muted">{{ user.email }}</div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-sm-4"> Mobile </div>
+                                    <div class="col-sm-8 text-muted">{{ user.phoneNumber }} </div>
+                                </div>
+                                <div class="row">
+                                    <hr>
+                                    <div class="col-sm-4">User Type</div>
+                                    <div class="col-sm-8 text-muted">{{ user.userType ? user.userType : 'Customer' }} </div>
+                                </div>
+                                <div class="row" *ngIf="user.Notes">
+                                    <hr>
+                                    <div class="col-sm-4">Notes </div>
+                                    <div class="col-sm-8 text-muted">{{ user.Notes }} </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-6" *ngIf="isEdit">
+                    <form #users="ngForm" (ngSubmit)="saveProfile();users.reset();">
+                        <label class="form-check-label" for="SuperUser">Select Type of user:</label>
+                        <div class="form-group">
+                            <input type="radio" class="form-check-input" id="SuperUser" name="SuperUser"
+                                [(ngModel)]="UserProfile.userType" value="SuperUser">
+                            <label class="form-check-label" for="SuperUser">&nbsp; Super User</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" class="form-check-input" id="Adminuser" name="Admin"
+                                [(ngModel)]="UserProfile.userType" value="Admin">
+                            <label class="form-check-label" for="Adminuser">&nbsp; Admin</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" class="form-check-input" id="Employee" name="Employee"
+                                [(ngModel)]="UserProfile.userType" value="Employee">
+                            <label class="form-check-label" for="Employee">&nbsp; Employee</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="radio" class="form-check-input" id="BlockedEmployee" name="BlockedEmployee"
+                                [(ngModel)]="UserProfile.userType" value="Blocked Employee">
+                            <label class="form-check-label" for="BlockedEmployee">&nbsp; Employee Block</label>
+                        </div>
+                        <div class="form-group" *ngIf="UserProfile.userType == 'Employee'">
+                            <label for="EmployeeDetails">Employee Details</label>
+                            <div class="form-group">
+                                <label for="EmployeeSalary">Salary</label>
+                                <input type="number" class="form-control" id="EmployeeSalary" name="EmployeeSalary" [(ngModel)]="UserProfile.Employee.Salary" placeholder="Enter Employee Salary">
+                            </div>
+                            <div class="form-group">
+                                <label for="EmployeeWorkday">Workday</label>
+                                <input type="date" class="form-control" id="EmployeeWorkday" name="EmployeeWorkday" [(ngModel)]="UserProfile.Employee.Workday" placeholder="Enter Employee Workday">
+                            </div>
+                            <div class="form-group">
+                                <label for="EmployeeExperience">Experience</label>
+                                <input type="number" class="form-control" id="EmployeeExperience" name="EmployeeExperience" [(ngModel)]="UserProfile.Employee.Experience" placeholder="Enter Employee Experience">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Notes">Notes:</label>
+                            <textarea class="form-control" id="Notes" [(ngModel)]="UserProfile.Notes" name="Notes"
+                                rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Save</button>&nbsp;&nbsp;
+                        <button type="cancle" class="btn btn-secondary mt-3"
+                            (click)="users.reset();isEdit=!isEdit">cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
